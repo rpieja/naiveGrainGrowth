@@ -1,7 +1,5 @@
 package pl.rpieja.ngr;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class WindowController {
@@ -110,7 +107,7 @@ public class WindowController {
         catch (Exception e){
             System.err.println("Error parsing grid values\n");
         }
-        System.err.println("Grid Size:\nx: " + gridX + "\ny: " + gridY+"\n");
+        System.out.println("Grid Size:\nx: " + gridX + "\ny: " + gridY+"\n");
     }
 
 
