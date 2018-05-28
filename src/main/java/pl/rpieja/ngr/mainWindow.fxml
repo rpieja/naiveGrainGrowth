@@ -13,17 +13,22 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleGroup?>
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.rpieja.ngr.WindowController">
+    <fx:define>
+        <ToggleGroup fx:id="tg"/>
+    </fx:define>
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                     AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
                 <VBox prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label text="Board Size"/>
-                        <TextField promptText="x" text="1700"/>
-                        <TextField promptText="y" text="1000"/>
+                        <Label text="Grid Size"/>
+                        <TextField promptText="x" text="170" fx:id="gridSizeX"/>
+                        <TextField promptText="y" text="100" fx:id="gridSizeY"/>
                         <Separator prefWidth="200.0"/>
                         <Label text="Neighbourhood Type"/>
                         <ChoiceBox fx:id="neighbourhoodTypeChoice" prefWidth="200.0"/>
@@ -31,17 +36,18 @@
                         <CheckBox mnemonicParsing="false" text="Periodical Boundary Conditions"/>
                         <Separator prefWidth="200.0"/>
                         <Label text="Seeds drawing"/>
-                        <RadioButton mnemonicParsing="false" text="Random"/>
-                        <RadioButton mnemonicParsing="false" text="Even"/>
-                        <RadioButton mnemonicParsing="false" text="Random with radius"/>
-                        <TextField promptText="Radius"/>
-                        <RadioButton mnemonicParsing="false" text="Hand picked"/>
+                        <RadioButton mnemonicParsing="false" text="Random" fx:id="rand" toggleGroup="$tg"/>
+                        <RadioButton mnemonicParsing="false" text="Even" fx:id="even" toggleGroup="$tg"/>
+                        <RadioButton mnemonicParsing="false" text="Random with radius" fx:id="randWithRadius" toggleGroup="$tg"/>
+                        <TextField promptText="Radius" fx:id="drawRadius"/>
+                        <RadioButton mnemonicParsing="false" text="Hand picked" fx:id="handPicked" toggleGroup="$tg"/>
                         <Separator prefWidth="200"/>
                         <CheckBox mnemonicParsing="false" text="Constant seed drawing"/>
                         <Separator prefWidth="200"/>
-                        <TextField promptText="Tick Speed" prefWidth="200"/>
-                        <Button text="Start/Stop" prefWidth="200"/>
-                        <Button text="Reset" prefWidth="200"/>
+                        <TextField promptText="Tick Speed" prefWidth="200" fx:id="tickRate" disable="true"/>
+                        <Button text="Generate" prefWidth="200" fx:id="generateGridButton"/>
+                        <Button text="Start/Stop" prefWidth="200" fx:id="toggleTimelineButton"/>
+                        <Button text="Reset" prefWidth="200" fx:id="resetButton"/>
                     </children>
                     <BorderPane.margin>
                         <Insets/>
